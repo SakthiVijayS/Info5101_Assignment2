@@ -4,6 +4,8 @@
  */
 package assignmenttwo;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -289,6 +291,24 @@ public class viewPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
+            User selectedUser;
+           int selectedIndex = userTable.getSelectedRow();
+        if (selectedIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to be updated", "Error - No selection", JOptionPane.WARNING_MESSAGE);
+        } else {
+            DefaultTableModel model = (DefaultTableModel) userTable.getModel();
+            selectedUser = (User) model.getValueAt(selectedIndex, 0);
+            selectedUser.setName(nameField.getText());
+            selectedUser.setAge(Integer.parseInt(ageField.getText()));
+            selectedUser.setGender(genderField.getText());
+            selectedUser.setStartDate(LocalDate.parse(dateField.getText()));
+            selectedUser.setLevel(levelField.getText());
+            selectedUser.setTeleNo(Long.parseLong(telephoneField.getText()));
+            selectedUser.setEmail(emailField.getText());
+            
+            JOptionPane.showMessageDialog(this, "Employee Details Updated", "Success", HEIGHT);
+        }
+          
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
