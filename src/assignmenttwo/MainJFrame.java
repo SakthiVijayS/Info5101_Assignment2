@@ -113,6 +113,10 @@ public class MainJFrame extends javax.swing.JFrame {
         //   viewdetailspanel viewPanel = new viewdetailspanel(inputUser);
          //   jSplitPane1.setBottomComponent(viewPanel);
         //}
+         viewPanel viewPanel = new viewPanel(bottomPanel,users);
+        bottomPanel.add("ViewScreen", viewPanel);
+        CardLayout layout = (CardLayout) bottomPanel.getLayout();
+        layout.next(bottomPanel);
     }//GEN-LAST:event_viewButtonActionPerformed
 
     /**

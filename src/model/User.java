@@ -86,6 +86,15 @@ public class User {
     public void setProfilePic(ImageIcon profilePic) {
         this.profilePic = profilePic;
     }
+
+    @Override
+    public String toString() {
+        return name ;
+    }
+    
+    
+    
+    
     String name;
     String employeeId;
     int age;
