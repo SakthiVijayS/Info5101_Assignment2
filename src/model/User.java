@@ -89,7 +89,7 @@ public class User {
 
     @Override
     public String toString() {
-        return name ;
+       return name ;
     }
     
     
@@ -103,7 +103,8 @@ public class User {
     String level;
     String email;
     long teleNo;
-    ImageIcon profilePic;
+    public ImageIcon profilePic;
+    
     
     
 }

@@ -4,9 +4,15 @@
  */
 package assignmenttwo;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.time.LocalDate;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import model.User;
 import model.UserDirectory;
 
@@ -21,10 +27,12 @@ public class createPanel extends javax.swing.JPanel {
      */
     JPanel bottomPanel;
     UserDirectory users;
+    User tempuser;
     public createPanel( JPanel bottomPanel, UserDirectory users) {
         initComponents();
         this.bottomPanel=bottomPanel;
         this.users=users;
+       // tempuser = new User();
     }
 
     /**
@@ -52,6 +60,7 @@ public class createPanel extends javax.swing.JPanel {
         telephoneField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         headingLabel.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         headingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,6 +123,13 @@ public class createPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Upload Photo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,6 +137,7 @@ public class createPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(226, 226, 226)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -176,7 +193,9 @@ public class createPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel)
                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(saveButton)
                 .addGap(82, 82, 82))
         );
@@ -218,6 +237,7 @@ public class createPanel extends javax.swing.JPanel {
         newUser.setLevel(levelField.getText());
         newUser.setTeleNo(Long.parseLong(telephoneField.getText()));
         newUser.setEmail(emailField.getText());
+        newUser.profilePic = tempuser.profilePic;
         } catch (Exception ex)  {
               JOptionPane.showMessageDialog(this, "Please enter correct details", "Error", HEIGHT);
         }
@@ -227,6 +247,32 @@ public class createPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Employee Details Saved", "Success", HEIGHT);
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        tempuser= uploadPhoto(tempuser);
+            
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+     public User uploadPhoto(User user){
+         user = new User();
+     JFileChooser file = new JFileChooser();  
+    FileNameExtensionFilter filter = new FileNameExtensionFilter(
+        "JPG & GIF Images", "jpg", "gif");
+    file.setFileFilter(filter);
+    int returnVal = file.showOpenDialog(null);
+    if(returnVal == JFileChooser.APPROVE_OPTION) {
+       try{
+         BufferedImage img = ImageIO.read(file.getSelectedFile());
+         Image scaled      =  img.getScaledInstance(150,216, Image.SCALE_DEFAULT);
+        user.setProfilePic(new ImageIcon(scaled));
+    }                                        
+       catch(Exception ex){
+           JOptionPane.showMessageDialog(this, "Please upload valid image.", "Error - Invalid image", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+       }
+    } 
+    return user;
+ }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageField;
@@ -238,6 +284,7 @@ public class createPanel extends javax.swing.JPanel {
     private javax.swing.JTextField genderField;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel headingLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JTextField levelField;
     private javax.swing.JLabel levelLabel;
     private javax.swing.JTextField nameField;
