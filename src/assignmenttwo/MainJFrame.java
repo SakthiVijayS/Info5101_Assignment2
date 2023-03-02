@@ -7,7 +7,7 @@ package assignmenttwo;
 import java.awt.CardLayout;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
-import model.UserDirectory;
+import model.EmployeeDirectory;
 
 /**
  *
@@ -18,10 +18,10 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    UserDirectory users;
+    EmployeeDirectory employees;
     public MainJFrame() {
         initComponents();
-        users = new UserDirectory();
+        employees = new EmployeeDirectory();
     }
 
     /**
@@ -99,7 +99,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-        createPanel formPanel = new createPanel(bottomPanel,users);
+        createPanel formPanel = new createPanel(bottomPanel,employees);
         bottomPanel.add("CreateScreen", formPanel);
         CardLayout layout = (CardLayout) bottomPanel.getLayout();
         layout.next(bottomPanel);
@@ -113,7 +113,7 @@ public class MainJFrame extends javax.swing.JFrame {
         //   viewdetailspanel viewPanel = new viewdetailspanel(inputUser);
          //   jSplitPane1.setBottomComponent(viewPanel);
         //}
-         viewPanel viewPanel = new viewPanel(bottomPanel,users);
+         viewPanel viewPanel = new viewPanel(bottomPanel,employees);
         bottomPanel.add("ViewScreen", viewPanel);
         CardLayout layout = (CardLayout) bottomPanel.getLayout();
         layout.next(bottomPanel);

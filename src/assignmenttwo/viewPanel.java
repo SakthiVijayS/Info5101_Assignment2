@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import model.User;
-import model.UserDirectory;
+import model.Employee;
+import model.EmployeeDirectory;
 
 /**
  *
@@ -28,9 +28,9 @@ public class viewPanel extends javax.swing.JPanel {
      */
     
     JPanel bottomPanel;
-    UserDirectory users;
+    EmployeeDirectory users;
     
-    public viewPanel(JPanel bottomPanel, UserDirectory users) {
+    public viewPanel(JPanel bottomPanel, EmployeeDirectory users) {
         initComponents();
         this.bottomPanel = bottomPanel;
         this.users = users;
@@ -329,7 +329,7 @@ public class viewPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select a row to be viewed", "Error - No selection", JOptionPane.WARNING_MESSAGE);
         } else {
             DefaultTableModel model = (DefaultTableModel) userTable.getModel();
-            User selectedUser = (User) model.getValueAt(selectedIndex, 0);
+            Employee selectedUser = (Employee) model.getValueAt(selectedIndex, 0);
             nameField.setText(selectedUser.getName());
             ageField.setText(String.valueOf(selectedUser.getAge()));
             genderField.setText(selectedUser.getGender());
@@ -344,13 +344,13 @@ public class viewPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-            User selectedUser;
+            Employee selectedUser;
            int selectedIndex = userTable.getSelectedRow();
         if (selectedIndex < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to be updated", "Error - No selection", JOptionPane.WARNING_MESSAGE);
         } else {
             DefaultTableModel model = (DefaultTableModel) userTable.getModel();
-            selectedUser = (User) model.getValueAt(selectedIndex, 0);
+            selectedUser = (Employee) model.getValueAt(selectedIndex, 0);
             selectedUser.setName(nameField.getText());
             selectedUser.setAge(Integer.parseInt(ageField.getText()));
             selectedUser.setGender(genderField.getText());
@@ -371,7 +371,7 @@ public class viewPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select a row to be deleted", "Error - No selection", JOptionPane.WARNING_MESSAGE);
         } else {
             DefaultTableModel model = (DefaultTableModel) userTable.getModel();
-            User selectedUser = (User) model.getValueAt(selectedIndex, 0);
+            Employee selectedUser = (Employee) model.getValueAt(selectedIndex, 0);
             users.removeUser(selectedUser);
             JOptionPane.showMessageDialog(this, "User Information is deleted successfully.");
             populateTable();
@@ -431,7 +431,7 @@ public class viewPanel extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) userTable.getModel();
         model.setRowCount(0);
-        for (User u : users.getAllUsers()) {
+        for (Employee u : users.getAllUsers()) {
             Object[] row = new Object[2];
             row[0] = u;
             row[1] = u.getLevel();
