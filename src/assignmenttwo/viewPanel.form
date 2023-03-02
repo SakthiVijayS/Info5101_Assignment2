@@ -16,11 +16,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
-              <Component id="headingLabel" min="-2" pref="248" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -33,11 +28,6 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="idLabel" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="idField" max="32767" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="nameLabel" alignment="1" max="32767" attributes="0"/>
@@ -59,6 +49,17 @@
                                           <Component id="emailField" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="idLabel" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" min="-2" pref="71" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="idField" max="32767" attributes="0"/>
+                                          <Component id="searchField" pref="152" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -71,7 +72,12 @@
                   </Group>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="130" max="32767" attributes="0"/>
+              <EmptySpace pref="121" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+              <Component id="headingLabel" min="-2" pref="248" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,8 +87,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="headingLabel" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="123" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="103" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="viewButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -136,7 +142,12 @@
                   <Component id="idLabel" min="-2" max="-2" attributes="0"/>
                   <Component id="idField" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="131" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="searchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -289,6 +300,17 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="idField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="searchField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchFieldActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchFieldKeyPressed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Search"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

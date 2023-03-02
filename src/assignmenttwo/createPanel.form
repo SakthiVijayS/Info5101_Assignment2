@@ -19,32 +19,39 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="uploadPhotoButton" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="nameLabel" max="32767" attributes="0"/>
-                          <Component id="ageLabel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="genderLabel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="dateLabel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="levelLabel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="telephonenoLabel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="emailLabel" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nameField" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="ageField" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="genderField" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="dateField" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="levelField" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="telephoneField" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="emailField" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="saveButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="uploadPhotoButton" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="nameLabel" max="32767" attributes="0"/>
+                                  <Component id="ageLabel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="genderLabel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="dateLabel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="levelLabel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="telephonenoLabel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="emailLabel" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="nameField" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="ageField" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="genderField" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="dateField" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="levelField" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="telephoneField" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="emailField" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="saveButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Component id="headingLabel" min="-2" pref="248" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="headingLabel" min="-2" pref="248" max="-2" attributes="0"/>
+                      <EmptySpace min="25" pref="226" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="226" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
