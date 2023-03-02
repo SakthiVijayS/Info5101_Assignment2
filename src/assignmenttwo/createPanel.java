@@ -7,6 +7,7 @@ package assignmenttwo;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.time.LocalDate;
+import java.util.UUID;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -60,7 +61,7 @@ public class createPanel extends javax.swing.JPanel {
         telephoneField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        uploadPhotoButton = new javax.swing.JButton();
 
         headingLabel.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         headingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -123,10 +124,10 @@ public class createPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Upload Photo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        uploadPhotoButton.setText("Upload Photo");
+        uploadPhotoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                uploadPhotoButtonActionPerformed(evt);
             }
         });
 
@@ -137,7 +138,7 @@ public class createPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(226, 226, 226)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(uploadPhotoButton)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -194,7 +195,7 @@ public class createPanel extends javax.swing.JPanel {
                     .addComponent(emailLabel)
                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(uploadPhotoButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(saveButton)
                 .addGap(82, 82, 82))
@@ -229,7 +230,7 @@ public class createPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         User newUser = new User();
         try{
-        
+       // UUID.randomUUID().toString();
         newUser.setName(nameField.getText());
         newUser.setAge(Integer.parseInt(ageField.getText()));
         newUser.setGender(genderField.getText());
@@ -237,6 +238,7 @@ public class createPanel extends javax.swing.JPanel {
         newUser.setLevel(levelField.getText());
         newUser.setTeleNo(Long.parseLong(telephoneField.getText()));
         newUser.setEmail(emailField.getText());
+        newUser.employeeId=UUID.randomUUID().toString();
         newUser.profilePic = tempuser.profilePic;
         } catch (Exception ex)  {
               JOptionPane.showMessageDialog(this, "Please enter correct details", "Error", HEIGHT);
@@ -247,11 +249,11 @@ public class createPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Employee Details Saved", "Success", HEIGHT);
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void uploadPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadPhotoButtonActionPerformed
         // TODO add your handling code here:
         tempuser= uploadPhoto(tempuser);
             
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_uploadPhotoButtonActionPerformed
 
      public User uploadPhoto(User user){
          user = new User();
@@ -284,7 +286,6 @@ public class createPanel extends javax.swing.JPanel {
     private javax.swing.JTextField genderField;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel headingLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JTextField levelField;
     private javax.swing.JLabel levelLabel;
     private javax.swing.JTextField nameField;
@@ -292,5 +293,6 @@ public class createPanel extends javax.swing.JPanel {
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField telephoneField;
     private javax.swing.JLabel telephonenoLabel;
+    private javax.swing.JButton uploadPhotoButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,7 +28,7 @@ public class User {
     }
 
     public void setEmployeeId(String employeeId) {
-        this.employeeId = UUID.randomUUID().toString();
+        this.employeeId = employeeId;
     }
 
     public int getAge() {
@@ -96,7 +96,7 @@ public class User {
     
     
     String name;
-    String employeeId;
+    public String employeeId;
     int age;
     String gender;
     LocalDate startDate;
